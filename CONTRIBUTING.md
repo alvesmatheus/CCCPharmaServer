@@ -34,8 +34,8 @@ No commit, colocamos o que está em negrito.
 
 ###     3. Referência a uma issue ou pull request:
 - Deve usar algumas das keys definidas na tabela abaixo.
-- Deve usar a a numeração da issue ou task
-- Deve haver um único espaço entre a key e a numeração
+- Deve usar a a numeração da issue ou task.
+- Deve haver um único espaço entre a key e a numeração.
 
 | keys         | Descrição                                                                                               |
 | -------------|---------------------------------------------------------------------------------------------------------|
@@ -63,19 +63,18 @@ Closes gh-15158
 
 ## Guidelines para pull requests
 
-Cada código upado, será revisado por uma pessoa, ele não será upado, sem antes passar por uma revisão e pelos testes. Cada revisador irá usar como base os padrões e bad smells vistos na disciplina, como reforço para linguagens usaremos alguns style guides, por exemplo, para java script, o mais aceito é o do `airbnb`. Se julgar necessário, descreva decisões que tomou, que você acha que nem todos integrantes irão entender o motivo.
+Cada código upado, é revisado por uma pessoa, ele não é upado, sem antes passar por uma avaliação e pelos testes. Cada revisador usa como base os padrões e bad smells vistos na disciplina de projeto de software na UFCG, como reforço para os estilos das linguagens, usaremos as convenções mais aceitas pela comunidade da linguagem/biblioteca em questão, por exemplo, para javascript, é o do `airbnb`, nesse caso, faremos uso dele. 
+Se julgar necessário, descreva decisões que tomou, que você acha que nem todos integrantes irão entender o motivo.
 
-<aside class="warning">
-ATENÇÃO: Depois que seu pull request for merjado, apague a branch, pra não ficar poluindo as que existem e confundindo as pessoas.
-</aside>
 
+<span style="color:red">ATENÇÃO: Depois que seu pull request for merjado, apague a branch, pra não ficar poluindo as que existem e confundindo as pessoas.</span>
 
 ## Guidelines para criação e uso das branchs
 
 1. Padronização nos nomes das branchs: `num_issue-descricao-da-issue`
-2. Branchs seguras: Basicamente, temos duas branchs principais, a `master` onde todo código de deploy fica hospedado, só entra código na master que já foi testado e já tá pronto pra ser exibido no site, e a `developing` onde a partir dessa criamos as outras branchs para desenvolvimento de features, fix bugs e etc..., e vamos trabalhando nessas coisas, quando o código dessas coisas estiver pronto, pedimos merge para `master` e logo em seguida fazemos deploy no `heroku`. 
+2. Branchs seguras: Basicamente, temos duas branchs principais, a `master` onde todo código de deploy fica hospedado, só entra código na master que já foi testado e já está pronto pra ser exibido no site, e a `developing`, a partir dessa criamos as outras branchs para desenvolvimento de features, fix bugs e etc..., e vamos trabalhando nessas coisas, quando o código delas estiver pronto, pedimos merge para `master` e logo em seguida fazemos deploy no `heroku`. 
 É mais pra evitar que a gente suba um código pro site, que ainda não está 100%.
 
 ## Guidelines para issues
 
-Quando você criar uma issue, vincule ao [project](https://github.com/SpinnelSun/CCCPharma/projects)(que no caso é nossa User Story) e a Sprint adequada, use tags para categorizar e nos ajudar a filtrar as issues, tente não deixar a descrição da issue muito grande, pode ser dificil de acompanhar, como nossas issues vão estar relacionadas as tasks, se ficar muito grande, quebre em várias, lembre-se é sempre melhor resolver um problema complexo, em pequenos passos. ;)
+Quando você criar uma issue, vincule ao [project](https://github.com/SpinnelSun/CCCPharma/projects)(que no caso é nossa User Story) e a Sprint adequada, use tags para categorizar e nos ajudar a filtrar as issues, tente não deixar a descrição da issue muito grande, pode ser dificil de acompanhar, como nossas issues vão estar relacionadas as tasks, se ficar muito grande, quebre em várias, lembre-se é sempre melhor resolver um problema complexo, em pequenos passos. :Laugh:

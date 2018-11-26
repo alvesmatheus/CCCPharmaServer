@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_authority")
 public class Authority {
@@ -24,6 +26,8 @@ public class Authority {
 	@Enumerated(EnumType.STRING)
 	private UserRoleName name;
 
+	
+	@JsonIgnore
 	public String getAuthority() {
 		return name.name();
 	}

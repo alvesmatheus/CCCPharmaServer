@@ -1,5 +1,9 @@
 # CCCPharma
+[![Github Issues](http://githubbadges.herokuapp.com/OpenDevUFCG/Racharia/issues.svg?style=flat-square)](https://github.com/OpenDevUFCG/Racharia/issues) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/OpenDevUFCG/Racharia/pulls.svg?style=flat-square)](https://github.com/OpenDevUFCG/Racharia/pulls)
 Projeto final da disciplina Projeto de Software.
+
+## Demo
+[TODO: Adicionar mocks]
 
 ## Instalação
 
@@ -28,9 +32,16 @@ Feito isso é necessário criar um usuário, senha e um banco e configurá-las p
 [WIP]
 Veja mais detalhes na [wiki](https://github.com/SpinnelSun/CCCPharma/wiki/Autentica%C3%A7%C3%A3o-com-JsonWebToken(JwtToken))
 
+## Deploy
+[TODO: Condigurar heroku] 
+
+## Referência para API
+[TODO: Swagger]
+
 ## Guia do desenvolvedor
 
-O [guia do desenvolvedor](https://github.com/SpinnelSun/CCCPharma/blob/master/CONTRIBUTING.md) CCCPharma recomenda as melhores práticas para que os contribuidores possam escrever códigos que possam ser facilmente mantidos por outros programadores, todos nós sabemos o quanto é mais fácil entender um código se ele está padronizado.
+O [guia do desenvolvedor CCCPharma](https://github.com/SpinnelSun/CCCPharma/blob/master/CONTRIBUTING.md)  recomenda as melhores práticas para que os contribuidores possam escrever códigos que possam ser facilmente mantidos por outros programadores, todos nós sabemos o quanto é mais fácil entender um código se ele está padronizado.
 
 O guia é separado em várias seções de regras relacionadas. Tentamos adicionar a lógica por trás das regras (se estiver omitido, assumimos que é óbvio, mas caso discorde, abra uma issue nos alertando, e assim modificaremos).
+
 

@@ -1,6 +1,5 @@
 package br.edu.ufcg.cccpharma.user;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "tb_user")
 public class User {
@@ -22,16 +20,16 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	private String email;
-	
+
 	private String password;
-	
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_user_authority",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
-    private List<Authority> authorities;
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "tb_user_authority", 
+				joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), 
+				inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+	private List<Authority> authorities;
 
 	public Long getId() {
 		return id;
@@ -56,10 +54,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-    public List<Authority> getAuthorities() {
-        return this.authorities;
-    }
+
+	public List<Authority> getAuthorities() {
+		return this.authorities;
+	}
 
 	@Override
 	public int hashCode() {
@@ -90,6 +88,6 @@ public class User {
 		} else if (!password.equals(other.password))
 			return false;
 		return true;
-	}	
-	
+	}
+
 }

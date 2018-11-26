@@ -1,5 +1,5 @@
 # CCCPharma
-[![Github Issues](http://githubbadges.herokuapp.com/OpenDevUFCG/Racharia/issues.svg?style=flat-square)](https://github.com/OpenDevUFCG/Racharia/issues) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/OpenDevUFCG/Racharia/pulls.svg?style=flat-square)](https://github.com/OpenDevUFCG/Racharia/pulls)
+[![Github Issues](http://githubbadges.herokuapp.com/SpinnelSun/CCCPharma/issues.svg?style=flat-square)](https://github.com/SpinnelSun/CCCPharma/issues) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/SpinnelSun/CCCPharma/pulls.svg?style=flat-square)](https://github.com/SpinnelSun/CCCPharma/pulls)
 
 Projeto final da disciplina Projeto de Software.
 

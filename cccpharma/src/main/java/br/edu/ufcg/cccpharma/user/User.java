@@ -1,5 +1,6 @@
 package br.edu.ufcg.cccpharma.user;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "tb_user")
@@ -56,7 +59,11 @@ public class User {
 		this.password = password;
 	}
 
-	public List<Authority> getAuthorities() {
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.authorities;
+	}
+	
+	public List<Authority> getRoles(){
 		return this.authorities;
 	}
 
@@ -88,6 +95,22 @@ public class User {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		return true;
+	}
+	
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	public boolean isEnabled() {
 		return true;
 	}
 

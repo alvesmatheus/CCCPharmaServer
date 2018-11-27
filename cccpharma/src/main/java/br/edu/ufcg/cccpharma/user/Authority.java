@@ -8,11 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_authority")
-public class Authority {
+public class Authority implements GrantedAuthority{
 
 	/**
 	 * 
@@ -26,7 +28,7 @@ public class Authority {
 	@Enumerated(EnumType.STRING)
 	private UserRoleName name;
 
-	
+	@Override
 	@JsonIgnore
 	public String getAuthority() {
 		return name.name();

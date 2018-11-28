@@ -13,5 +13,20 @@ public class CategoryService {
 	public List<Category> findAll(){
 		return this.categoryRepository.findAll();
 	}
-
+	
+	public Category findByName(String name) {
+		return this.categoryRepository.findByName(name);
+	}
+	
+	public Category save(Category category) {
+		return this.categoryRepository.save(category);
+	}
+	
+	public void deleteByName(String name) {
+		this.categoryRepository.deleteById(name);
+	}
+	
+	public void deleteAll() {
+		this.categoryRepository.deleteAll();
+	}
 }

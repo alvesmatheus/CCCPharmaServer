@@ -51,4 +51,9 @@ public class Category {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Category: " + name ;
+	}
+	
 }

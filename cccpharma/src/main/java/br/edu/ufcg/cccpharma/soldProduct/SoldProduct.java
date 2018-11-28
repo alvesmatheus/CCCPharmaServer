@@ -24,7 +24,7 @@ public class SoldProduct {
 		this.quantity = quantity;
 	}
 
-	public SoldProduct() {}
+	public SoldProduct() { }
 
 	public Long getId() {
 		return this.id;

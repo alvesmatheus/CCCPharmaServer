@@ -13,6 +13,12 @@ public class Category {
 	
 	private double discount;
 	
+	public Category(String name, double discount) {
+		this.name = name;
+		this.discount = discount;
+	}
+	
+	public Category() {}
 	
 	public String getName() {
 		return name;

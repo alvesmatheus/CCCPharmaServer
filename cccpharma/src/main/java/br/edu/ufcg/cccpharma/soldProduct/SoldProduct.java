@@ -18,6 +18,14 @@ public class SoldProduct {
 
 	private int quantity;
 
+	public SoldProduct(long id, String productCode, int quantity) {
+		this.id = id;
+		this.productCode = productCode;
+		this.quantity = quantity;
+	}
+
+	public SoldProduct() {}
+
 	public Long getId() {
 		return this.id;
 	}

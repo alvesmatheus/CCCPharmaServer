@@ -45,8 +45,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	@Override
-    public void configure(WebSecurity web) throws Exception {
-        // AuthenticationTokenFilter will ignore the below paths
-        web.ignoring().antMatchers(HttpMethod.POST, "/auth/signin");
+	public void configure(WebSecurity web) throws Exception {
+		// AuthenticationTokenFilter will ignore the below paths
+		web.ignoring().antMatchers(HttpMethod.POST, "/auth/signin");
 	}
 }

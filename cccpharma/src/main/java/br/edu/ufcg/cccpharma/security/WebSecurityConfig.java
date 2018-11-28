@@ -6,13 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -31,19 +29,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.csrf().disable().authorizeRequests()
-        	.antMatchers("/users/signin").permitAll()
-        	.anyRequest().authenticated()
-        	.and()
-        	.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
+		
+		http.csrf().disable();
+		
+		http.sessionManagement()
+			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		
+		http.authorizeRequests()
+			.antMatchers("/user/signin").permitAll()
+			.anyRequest().authenticated();
+		
+		http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
+		
 	}
 	
 	
 	@Override
     public void configure(WebSecurity web) throws Exception {
         // AuthenticationTokenFilter will ignore the below paths
-        web.ignoring().antMatchers(HttpMethod.POST, "/users/signin");
-
-            
+        web.ignoring().antMatchers(HttpMethod.POST, "/auth/signin");
 	}
 }

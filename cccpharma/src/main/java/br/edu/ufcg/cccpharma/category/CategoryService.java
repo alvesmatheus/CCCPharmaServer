@@ -22,6 +22,12 @@ public class CategoryService {
 		return this.categoryRepository.save(category);
 	}
 	
+	public void update(String name, Category category) {
+		Category toUpdate = this.categoryRepository.getOne(name);
+		toUpdate.setDiscount(category.getDiscount());
+		toUpdate.setName(category.getName());
+	}
+	
 	public void deleteByName(String name) {
 		this.categoryRepository.deleteById(name);
 	}

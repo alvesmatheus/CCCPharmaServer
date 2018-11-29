@@ -21,14 +21,14 @@ public class Category {
 	public Category() {}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
 	
 	public double getDiscount() {
-		return discount;
+		return this.discount;
 	}
 	public void setDiscount(double discount) {
 		this.discount = discount;
@@ -59,7 +59,7 @@ public class Category {
 	}
 	@Override
 	public String toString() {
-		return "Category: " + name ;
+		return "Category name: " + this.getName() + " - discount: " + this.getDiscount();
 	}
 	
 }

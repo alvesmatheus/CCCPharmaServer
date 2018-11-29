@@ -19,7 +19,7 @@ public class CategoryController {
 	private CategoryService categoryService;
 	
 	@GetMapping
-	public List<Category> getCategories(){
+	public List<Category> findAll(){
 		return this.categoryService.findAll();
 	}
 	

@@ -81,7 +81,6 @@ public class User {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
 
@@ -98,11 +97,6 @@ public class User {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
 			return false;
 		return true;
 	}

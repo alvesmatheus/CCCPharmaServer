@@ -16,6 +16,8 @@ import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_user")
 public class User {
@@ -72,6 +74,7 @@ public class User {
 		return this.authorities;
 	}
 	
+	@JsonIgnore
 	public List<Authority> getRoles(){
 		return this.authorities;
 	}
@@ -101,18 +104,22 @@ public class User {
 		return true;
 	}
 	
+	@JsonIgnore
 	public boolean isAccountNonExpired() {
 		return true;
 	}
-
+	
+	@JsonIgnore
 	public boolean isAccountNonLocked() {
 		return true;
 	}
 
+	@JsonIgnore
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
 
+	@JsonIgnore
 	public boolean isEnabled() {
 		return true;
 	}

@@ -34,9 +34,18 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id")
 	)
 	private List<Authority> authorities;
+	
+	
+	public User() {}
+	
+	public User(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
+	
 
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -44,7 +53,7 @@ public class User {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -52,7 +61,7 @@ public class User {
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	public void setPassword(String password) {

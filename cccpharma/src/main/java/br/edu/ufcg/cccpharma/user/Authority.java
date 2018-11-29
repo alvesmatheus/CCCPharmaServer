@@ -27,6 +27,13 @@ public class Authority implements GrantedAuthority{
 
 	@Enumerated(EnumType.STRING)
 	private UserRoleName name;
+	
+	public Authority() {}
+	
+	public Authority(long id, UserRoleName name) {
+		this.id = id;
+		this.name = name;
+	}
 
 	@Override
 	@JsonIgnore

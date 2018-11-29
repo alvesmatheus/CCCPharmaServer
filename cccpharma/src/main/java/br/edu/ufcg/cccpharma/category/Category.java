@@ -23,6 +23,7 @@ public class Category {
 	public String getName() {
 		return this.name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -30,6 +31,7 @@ public class Category {
 	public double getDiscount() {
 		return this.discount;
 	}
+	
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
@@ -41,6 +43,7 @@ public class Category {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -57,6 +60,7 @@ public class Category {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Category name: " + this.getName() + " - discount: " + this.getDiscount();

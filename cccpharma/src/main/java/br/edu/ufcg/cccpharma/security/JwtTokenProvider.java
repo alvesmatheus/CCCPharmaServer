@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
+import br.edu.ufcg.cccpharma.security.auth.config.AuthenticationConfig;
 import br.edu.ufcg.cccpharma.user.Authority;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -68,9 +69,9 @@ public class JwtTokenProvider {
 	}
 	
 	public String resolveToken(HttpServletRequest req) {
-		String bearerToken = req.getHeader("Authorization");
+		String bearerToken = req.getHeader(AuthenticationConfig.HEADER.toString());
 		
-		if(bearerToken != null && bearerToken.startsWith("Bearer")) {
+		if(bearerToken != null && bearerToken.startsWith(AuthenticationConfig.TOKEN_PREFIX.toString())) {
 			return bearerToken.substring(7, bearerToken.length());
 		}
 		

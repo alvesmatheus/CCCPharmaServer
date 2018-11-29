@@ -6,14 +6,14 @@ public enum AuthenticationConfig {
 	TOKEN("token"),
 	ROLES("roles");
 	
-	private String descricao;
+	private String description;
 	
 	/**
 	 * Inicializa os valores de cada enum
 	 * @param descricao o valor do enum
 	 */
-	private AuthenticationConfig(String descricao){
-		this.descricao = descricao;
+	private AuthenticationConfig(String description){
+		this.description = description;
 	}
 	
 	/**
@@ -21,6 +21,6 @@ public enum AuthenticationConfig {
 	 * @return String o valor do enum escolhido
 	 */
 	public String toString(){
-		return this.descricao;
+		return this.description;
 	}
 }

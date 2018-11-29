@@ -22,12 +22,12 @@ public class AuthenticationService {
 	private AuthenticationManager authenticationManager;
 	
 	public String signin(String email, String password) throws Exception {
-		System.out.println(password);
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
-			return jwtTokenProvider.createToken(email, userRepository.findByEmail(email).getRoles());
+			String token = jwtTokenProvider.createToken(email, userRepository.findByEmail(email).getRoles());
+			
+			return token;
 		} catch (AuthenticationException e) {
-			System.out.println(e.getMessage());
 			throw new Exception("Invalid username/password supplied");
 		}
 	}

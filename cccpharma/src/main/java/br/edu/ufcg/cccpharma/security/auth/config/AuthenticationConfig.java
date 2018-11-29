@@ -1,7 +1,7 @@
 package br.edu.ufcg.cccpharma.security.auth.config;
 
 public enum AuthenticationConfig {
-	HEADER("Authentication"),
+	HEADER("Authorization"),
 	TOKEN_PREFIX("Bearer"),
 	TOKEN("token"),
 	ROLES("roles");

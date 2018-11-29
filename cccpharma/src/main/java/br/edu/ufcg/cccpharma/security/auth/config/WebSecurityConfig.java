@@ -8,7 +8,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
@@ -16,7 +15,6 @@ import br.edu.ufcg.cccpharma.security.JwtTokenFilterConfigurer;
 import br.edu.ufcg.cccpharma.security.JwtTokenProvider;
 
 @Configuration
-@EnableWebSecurity
 @EnableAutoConfiguration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -39,8 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		
 		http.authorizeRequests()
-			.antMatchers("/auth/signin").permitAll()
-			.anyRequest().authenticated();
+			.antMatchers("/users").authenticated();
 		
 		http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
 		

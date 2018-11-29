@@ -9,4 +9,7 @@ public interface ProductRepository extends JpaRepository<Product, String> {
 	Product findByName(String name);
 	
 	Product findByCode(String code);
+	
+	void deleteByCode(String code);
+	
 }

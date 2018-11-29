@@ -27,8 +27,6 @@ public class Product {
     @JoinColumn(name = "category", nullable = false)
 	private Category category;
 
-	
-	
 	public Product(String name, String code, Double price, int quantity, String producer,Category category) {
 		this.name = name;
 		this.code = code;
@@ -131,4 +129,5 @@ public class Product {
 		return "Product [name=" + this.getName() + ", code=" + this.getCode() + ", price=" + this.getPrice() + ", quantity=" + this.getQuantity()
 				+ ", producer=" + this.getProducer() + ", category=" + this.getCategory().getName() + "]";
 	}
+	
 }

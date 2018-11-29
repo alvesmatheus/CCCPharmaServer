@@ -23,9 +23,8 @@ public class CategoryService {
 	}
 	
 	public void update(String name, Category category) {
-		Category toUpdate = this.categoryRepository.getOne(name);
-		toUpdate.setDiscount(category.getDiscount());
-		toUpdate.setName(category.getName());
+		this.categoryRepository.deleteById(name);
+		this.categoryRepository.save(category);
 	}
 	
 	public void deleteByName(String name) {

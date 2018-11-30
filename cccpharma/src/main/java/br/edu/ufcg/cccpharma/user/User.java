@@ -1,6 +1,5 @@
 package br.edu.ufcg.cccpharma.user;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;

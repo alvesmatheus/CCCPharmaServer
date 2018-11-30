@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -23,12 +24,12 @@ public class SoldProductController {
 	}
 
 	@GetMapping("/{id}")
-	public SoldProduct findById(long id) {
+	public SoldProduct findById(@PathVariable long id) {
 		return this.soldProductService.findById(id);
 	}
 
-	@GetMapping("/{productCode}")
-	public List<SoldProduct> findByProductCode(String productCode) {
+	@GetMapping("/code/{productCode}")
+	public List<SoldProduct> findByProductCode(@PathVariable String productCode) {
 		return this.soldProductService.findByProductCode(productCode);
 	}
 
@@ -38,7 +39,7 @@ public class SoldProductController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteById(long id) {
+	public void deleteById(@PathVariable long id) {
 		this.soldProductService.deleteById(id);
 	}
 	

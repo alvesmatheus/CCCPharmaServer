@@ -13,7 +13,7 @@ public class SoldProduct {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
 	private String productCode;
 
 	private int quantity;
@@ -34,11 +34,11 @@ public class SoldProduct {
 		this.id = id;
 	}
 
-	public String getCode() {
+	public String getProductCode() {
 		return this.productCode;
 	}
 
-	public void setCode(String code) {
+	public void setProductCode(String code) {
 		this.productCode = code;
 	}
 
@@ -77,7 +77,7 @@ public class SoldProduct {
 
 	@Override
 	public String toString() {
-		return "Product Code: " + this.getCode() + " - Quantity: " + this.getQuantity();
+		return "Product Code: " + this.getProductCode() + " - Quantity: " + this.getQuantity();
 	}
 
 }

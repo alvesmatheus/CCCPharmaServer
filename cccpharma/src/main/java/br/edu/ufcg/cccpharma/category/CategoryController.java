@@ -24,7 +24,7 @@ public class CategoryController {
 	}
 	
 	@GetMapping("/{name}")
-	public Category findByName(String name) {
+	public Category findByName(@PathVariable String name) {
 		return this.categoryService.findByName(name);
 	}
 	
@@ -39,7 +39,7 @@ public class CategoryController {
 	}
 	
 	@DeleteMapping("/{name}")
-	public void deleteByName(String name) {
+	public void deleteByName(@PathVariable String name) {
 		this.categoryService.deleteByName(name);
 	}
 	

@@ -20,7 +20,7 @@ public class Product {
 	
 	private Double price;
 	
-	private int quantity;
+	private int amount;
 	
 	private String producer;
 	
@@ -32,7 +32,7 @@ public class Product {
 		this.name = name;
 		this.code = code;
 		this.price = price;
-		this.quantity = quantity;
+		this.amount = quantity;
 		this.producer = producer;
 		this.category = category;
 	}
@@ -68,12 +68,12 @@ public class Product {
 		this.price = price;
 	}
 
-	public int getQuantity() {
-		return this.quantity;
+	public int getAmount() {
+		return this.amount;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setAmount(int quantity) {
+		this.amount = quantity;
 	}
 
 	public String getProducer() {
@@ -127,8 +127,12 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [name=" + this.getName() + ", code=" + this.getCode() + ", price=" + this.getPrice() + ", quantity=" + this.getQuantity()
-				+ ", producer=" + this.getProducer() + ", category=" + this.getCategory().getName() + "]";
+		return "Product [name=" + this.getName() + ", code=" + 
+				this.getCode() + ", price=" + 
+				this.getPrice() + ", quantity=" + 
+				this.getAmount() + ", producer=" + 
+				this.getProducer() + ", category=" + 
+				this.getCategory().getName() + "]";
 	}
 	
 }

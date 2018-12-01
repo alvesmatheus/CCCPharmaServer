@@ -2,9 +2,18 @@ package br.edu.ufcg.cccpharma.soldProduct;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.edu.ufcg.cccpharma.product.Product;
+
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "tb_sold_product")
@@ -13,18 +22,20 @@ public class SoldProduct {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	private String productCode;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+	@JoinColumn(name = "product_code", nullable = false)
+	private Product product;
 
 	private int quantity;
 
-	public SoldProduct(long id, String productCode, int quantity) {
+	public SoldProduct(long id, Product product, int quantity) {
 		this.id = id;
-		this.productCode = productCode;
+		this.product = product;
 		this.quantity = quantity;
 	}
 
-	public SoldProduct() { }
+	public SoldProduct() {}
 
 	public Long getId() {
 		return this.id;
@@ -34,12 +45,12 @@ public class SoldProduct {
 		this.id = id;
 	}
 
-	public String getProductCode() {
-		return this.productCode;
+	public Product getProduct() {
+		return this.product;
 	}
 
-	public void setProductCode(String code) {
-		this.productCode = code;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public int getQuantity() {
@@ -48,6 +59,11 @@ public class SoldProduct {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	@JsonIgnore
+	public String getCode() {
+		return product.getCode();
 	}
 
 	@Override
@@ -77,7 +93,7 @@ public class SoldProduct {
 
 	@Override
 	public String toString() {
-		return "Product Code: " + this.getProductCode() + " - Quantity: " + this.getQuantity();
+		return "Product Code: " + this.getCode() + " - Quantity: " + this.getQuantity();
 	}
 
 }

@@ -1,5 +1,15 @@
 # Guia do desenvolvedor
 
+## Tabela de conteúdos
+- [Commits](#guidelines-para-commits)
+- [Pull requests](#guidelines-para-pull-requests)
+- [Branchs](#guidelines-para-criação-e-uso-das-branchs)
+- [Issues](#guidelines-para-issues)
+- [Estrutura de pacotes](#estrutura-de-pacotes)
+- [Banco de dados](#guidelines-para-a-criação-de-tabelas-no-banco-de-dados)
+- [API](#guidelines-para-criação-de-endpoints-na-API)
+
+
 ##  Guidelines para commits
 ![](https://img.icons8.com/dusk/100/000000/commit-git.png)
 
@@ -106,3 +116,13 @@ com
              +- OrderService.java
              +- OrderRepository.java
 ```
+## Guidelines para a criação de tabelas no banco de dados
+![](https://img.icons8.com/dusk/100/000000/data-configuration.png)
+
+Antes de implementar uma funcionalidade do banco de dados, veja este [guia](https://github.com/RootSoft/Database-Naming-Convention), para que você não introduza padrões que não utilizamos, e seja necessário modificar quando fizer o pedido de pull request.
+
+## Guidelines para criação de endpoints na API
+![](https://img.icons8.com/dusk/100/000000/api-settings.png)
+
+Antes de implementar uma funcionalidade do banco de dados, veja este [guia](https://restfulapi.net/resource-naming/)
+para que você não introduza padrões que não utilizamos, e seja necessário modificar quando fizer o pedido de pull request.

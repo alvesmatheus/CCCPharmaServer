@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.edu.ufcg.cccpharma.soldProduct.SoldProduct;
@@ -20,6 +19,8 @@ public class Sale {
 	private Long id;
 	
 	private Double cost;
+
+	private List<SoldProduct> soldProducts;
 	
 	public Sale() {}
 
@@ -37,6 +38,14 @@ public class Sale {
 	
 	public void setCost(Double cost) {
 		this.cost = cost;
+	}
+	
+	public List<SoldProduct> getSoldProducts() {
+		return soldProducts;
+	}
+
+	public void setSoldProducts(List<SoldProduct> soldProducts) {
+		this.soldProducts = soldProducts;
 	}
 
 	@Override

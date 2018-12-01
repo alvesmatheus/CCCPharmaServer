@@ -6,6 +6,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Table;
+
+import br.edu.ufcg.cccpharma.product.Product;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,18 +22,18 @@ public class SoldProduct {
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "product_code", nullable = false)
-	private String productCode;
+	@JoinColumn(name = "product_code", nullable = false)
+	private Product product;
 
 	private int quantity;
 
-	public SoldProduct(long id, String productCode, int quantity) {
+	public SoldProduct(long id, Product product, int quantity) {
 		this.id = id;
+		this.product = product;
 		this.quantity = quantity;
-		this.productCode = productCode;
 	}
 
-	public SoldProduct() { }
+	public SoldProduct() {}
 
 	public Long getId() {
 		return this.id;
@@ -40,12 +43,12 @@ public class SoldProduct {
 		this.id = id;
 	}
 
-	public String getProductCode() {
-		return this.productCode;
+	public Product getProduct() {
+		return this.product;
 	}
 
-	public void setProductCode(String code) {
-		this.productCode = code;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public int getQuantity() {
@@ -83,7 +86,7 @@ public class SoldProduct {
 
 	@Override
 	public String toString() {
-		return "Product Code: " + this.getProductCode() + " - Quantity: " + this.getQuantity();
+		return "Product Code: " + this.getProduct().getCode() + " - Quantity: " + this.getQuantity();
 	}
 
 }

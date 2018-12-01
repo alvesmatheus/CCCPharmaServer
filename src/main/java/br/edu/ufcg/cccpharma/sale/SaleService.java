@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ufcg.cccpharma.user.User;
+
 @Service
 public class SaleService {
 	
@@ -31,8 +33,8 @@ public class SaleService {
 		this.saleRepository.deleteAll();
 	}
 
-	public List<Sale> findbyUser(String email) {
-		return this.saleRepository.findbyUser(email);
+	public List<Sale> findbyUser(User user) {
+		return this.saleRepository.findbyUser(user);
 	}
 
 }

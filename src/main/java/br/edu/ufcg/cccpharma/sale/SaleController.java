@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.ufcg.cccpharma.user.User;
+
 @RestController
 @RequestMapping("/sale")
 public class SaleController {
@@ -39,10 +41,10 @@ public class SaleController {
 		return this.saleService.findById(id);
 	}
 	
-	@GetMapping("/user/{email}")
+	@GetMapping("/{user}")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Sale> findByUser(@PathVariable String email){
-		return this.saleService.findbyUser(email);
+	public List<Sale> findByUser(@PathVariable User user){
+		return this.saleService.findbyUser(user);
 	}
 	
 	@GetMapping

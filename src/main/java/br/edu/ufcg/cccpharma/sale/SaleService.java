@@ -31,4 +31,8 @@ public class SaleService {
 		this.saleRepository.deleteAll();
 	}
 
+	public List<Sale> findbyUser(String email) {
+		return this.saleRepository.findbyUser(email);
+	}
+
 }

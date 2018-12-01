@@ -37,7 +37,13 @@ public class SaleController {
 	@ResponseStatus(HttpStatus.OK)
 	public Sale findById(@PathVariable long id) {
 		return this.saleService.findById(id);
-	}	
+	}
+	
+	@GetMapping("/user/{email}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Sale> findByUser(@PathVariable String email){
+		return this.saleService.findbyUser(email);
+	}
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)

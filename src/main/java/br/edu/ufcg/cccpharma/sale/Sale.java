@@ -32,6 +32,20 @@ public class Sale {
 	private User user;
 	
 	public Sale() {}
+	
+	public Sale(User user, List<SoldProduct> soldProducts) {
+		this.user = user;
+		this.soldProducts = soldProducts;
+		this.cost = this.calculateCost(soldProducts);
+	}
+
+	private Double calculateCost(List<SoldProduct> products) {
+		Double toReturn = 0.0;
+		for(SoldProduct soldProduct: products) {
+			toReturn += (soldProduct.getQuantity() * soldProduct.getProduct().getPrice());
+		}
+		return toReturn;
+	}
 
 	public Long getId() {
 		return id;

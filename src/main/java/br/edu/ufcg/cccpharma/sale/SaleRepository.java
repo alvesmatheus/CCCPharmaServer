@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SaleRepository  extends JpaRepository<Sale, Long>{
 	
-	Sale findById(int Id);
+	Sale findById(long Id);
 
 }

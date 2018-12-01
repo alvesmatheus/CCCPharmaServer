@@ -2,13 +2,18 @@ package br.edu.ufcg.cccpharma.sale;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.edu.ufcg.cccpharma.soldProduct.SoldProduct;
+import br.edu.ufcg.cccpharma.user.User;
 
 @Entity
 @Table(name = "tb_sale")
@@ -21,6 +26,10 @@ public class Sale {
 	private Double cost;
 
 	private List<SoldProduct> soldProducts;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+	@JoinColumn(name = "user_email", nullable = false)
+	private User user;
 	
 	public Sale() {}
 
@@ -48,6 +57,14 @@ public class Sale {
 		this.soldProducts = soldProducts;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -84,6 +101,4 @@ public class Sale {
 		return "Sale id: " + this.getId() + " - Cost: " + this.getCost();
 	}
 	
-	
-
 }

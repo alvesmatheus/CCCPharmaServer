@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import br.edu.ufcg.cccpharma.category.Category;
 
@@ -24,7 +24,7 @@ public class Product {
 	
 	private String producer;
 	
-	@OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
 	private Category category;
 

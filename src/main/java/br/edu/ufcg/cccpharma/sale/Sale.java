@@ -1,10 +1,15 @@
 package br.edu.ufcg.cccpharma.sale;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import br.edu.ufcg.cccpharma.soldProduct.SoldProduct;
 
 @Entity
 @Table(name = "tb_sale")
@@ -15,6 +20,8 @@ public class Sale {
 	private Long id;
 	
 	private Double cost;
+	
+	public Sale() {}
 
 	public Long getId() {
 		return id;

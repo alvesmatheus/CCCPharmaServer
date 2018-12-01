@@ -1,13 +1,12 @@
 package br.edu.ufcg.cccpharma.product;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,19 +19,13 @@ public class ProductController {
 	private ProductService productService;
 
 	@PostMapping
-	public Product save(Product product) {
+	public Product save(@RequestBody Product product) {
 		return this.productService.save(product);
 	}
 	
-	@PutMapping("/{code}")
-	public void update(@PathVariable String code, @RequestBody Product product) {
-		this.productService.deleteByCode(code);
-		this.productService.save(product);
-	}
-	
 	@GetMapping
-	public List<Product> findAll(String code) {
-		return this.productService.findAll();
+	public Page<Product> findAll(Pageable pageable) {
+		return this.productService.findAll(pageable);
 	}
 	
 	@GetMapping("/{code}")
@@ -40,7 +33,7 @@ public class ProductController {
 		return this.productService.findByCode(code);
 	}
 	
-	@GetMapping("/{name}")
+	@GetMapping("/name/{name}")
 	public Product findByName(@PathVariable String name) {
 		return this.productService.findByName(name);
 	}
@@ -51,7 +44,7 @@ public class ProductController {
 	}
 	
 	@DeleteMapping
-	public void deleteAll(Product product) {
+	public void deleteAll() {
 		this.productService.deleteAll();
 	}
 	

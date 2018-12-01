@@ -1,8 +1,8 @@
 package br.edu.ufcg.cccpharma.product;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,14 +15,9 @@ public class ProductService {
 	public Product save(Product product) {
 		return this.productRepository.save(product);
 	}
-	
-	public void update(String code, Product product) {
-		this.productRepository.deleteById(code);
-		this.productRepository.save(product);
-	}
-	
-	public List<Product> findAll() {
-		return this.productRepository.findAll();
+		
+	public Page<Product> findAll(Pageable pageRequest) {
+		return this.productRepository.findAll(pageRequest);
 	}
 	
 	public Product findByCode(String code) {

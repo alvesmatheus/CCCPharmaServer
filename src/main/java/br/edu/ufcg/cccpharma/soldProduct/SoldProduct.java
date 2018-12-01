@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.edu.ufcg.cccpharma.product.Product;
 
 import javax.persistence.Id;
@@ -59,6 +61,11 @@ public class SoldProduct {
 		this.quantity = quantity;
 	}
 
+	@JsonIgnore
+	public String getCode() {
+		return product.getCode();
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,7 +93,7 @@ public class SoldProduct {
 
 	@Override
 	public String toString() {
-		return "Product Code: " + this.getProduct().getCode() + " - Quantity: " + this.getQuantity();
+		return "Product Code: " + this.getCode() + " - Quantity: " + this.getQuantity();
 	}
 
 }

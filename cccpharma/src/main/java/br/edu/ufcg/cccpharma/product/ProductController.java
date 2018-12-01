@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +25,7 @@ public class ProductController {
 	}
 	
 	@PutMapping("/{code}")
-	public void update(String code, Product product) {
+	public void update(@PathVariable String code, @RequestBody Product product) {
 		this.productService.deleteByCode(code);
 		this.productService.save(product);
 	}
@@ -34,17 +36,17 @@ public class ProductController {
 	}
 	
 	@GetMapping("/{code}")
-	public Product findByCode(String code) {
+	public Product findByCode(@PathVariable String code) {
 		return this.productService.findByCode(code);
 	}
 	
 	@GetMapping("/{name}")
-	public Product findByName(String name) {
+	public Product findByName(@PathVariable String name) {
 		return this.productService.findByName(name);
 	}
 	
 	@DeleteMapping("/{code}")
-	public void deleteByCode(String code) {
+	public void deleteByCode(@PathVariable String code) {
 		this.productService.deleteByCode(code);
 	}
 	

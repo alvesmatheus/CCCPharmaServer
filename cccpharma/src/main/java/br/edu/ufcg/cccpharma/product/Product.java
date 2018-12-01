@@ -13,9 +13,10 @@ import br.edu.ufcg.cccpharma.category.Category;
 @Table(name = "tb_product")
 public class Product {
 	
-	private String name;
 	@Id
 	private String code;
+	
+	private String name;
 	
 	private Double price;
 	
@@ -24,7 +25,7 @@ public class Product {
 	private String producer;
 	
 	@OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "category", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
 	private Category category;
 
 	public Product(String name, String code, Double price, int quantity, String producer,Category category) {

@@ -2,9 +2,13 @@ package br.edu.ufcg.cccpharma.soldProduct;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "tb_sold_product")
@@ -13,15 +17,17 @@ public class SoldProduct {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "product_code", nullable = false)
 	private String productCode;
 
 	private int quantity;
 
 	public SoldProduct(long id, String productCode, int quantity) {
 		this.id = id;
-		this.productCode = productCode;
 		this.quantity = quantity;
+		this.productCode = productCode;
 	}
 
 	public SoldProduct() { }

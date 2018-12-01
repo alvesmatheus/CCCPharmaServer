@@ -22,10 +22,6 @@ public class CategoryService {
 		return this.categoryRepository.save(category);
 	}
 	
-	public void update(String name, Category category) {
-		this.categoryRepository.deleteById(name);
-		this.categoryRepository.save(category);
-	}
 	
 	public void deleteByName(String name) {
 		this.categoryRepository.deleteById(name);

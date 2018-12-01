@@ -15,6 +15,16 @@ public class ProductService {
 	public Product save(Product product) {
 		return this.productRepository.save(product);
 	}
+	
+	/**
+	 * O metodo do spring checa se já existe produto se existir ele atualiza, 
+	 * senão cria
+	 * @param product
+	 * @return
+	 */
+	public Product update(Product product) {
+		return this.save(product);
+	}
 		
 	public Page<Product> findAll(Pageable pageRequest) {
 		return this.productRepository.findAll(pageRequest);

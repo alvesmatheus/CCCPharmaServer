@@ -3,17 +3,14 @@ package br.edu.ufcg.cccpharma.user;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
+import javax.persistence.CascadeType;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,35 +20,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
 	private String email;
 
 	private String password;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "tb_user_authority", 
-	joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), 
-	inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id")
-	)
+	@JoinTable(name = "tb_user_authority",
+	           joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+	           inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
 	private List<Authority> authorities;
-	
-	
-	public User() {}
-	
+
+	public User() { }
+
 	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
-	}
-	
-
-	public Long getId() {
-		return this.id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
@@ -73,9 +56,9 @@ public class User {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return this.authorities;
 	}
-	
+
 	@JsonIgnore
-	public List<Authority> getRoles(){
+	public List<Authority> getRoles() {
 		return this.authorities;
 	}
 
@@ -104,11 +87,16 @@ public class User {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return "Email: " + this.getEmail() + " - Authority: " + this.getAuthorities().toString();
+	}
+
 	@JsonIgnore
 	public boolean isAccountNonExpired() {
 		return true;
 	}
-	
+
 	@JsonIgnore
 	public boolean isAccountNonLocked() {
 		return true;

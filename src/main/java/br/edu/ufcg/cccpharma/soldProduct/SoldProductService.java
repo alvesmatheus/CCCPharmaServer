@@ -54,7 +54,7 @@ public class SoldProductService {
 	 * given ID does not match one of the sold products in the system, this method
 	 * will return null.
 	 * 
-	 * @param soldProduct The ID number of the requested sold product.
+	 * @param id The ID number of the requested sold product.
 	 * 
 	 * @return The SoldProduct object whose ID number was given, if it exists. Null,
 	 *         otherwise.
@@ -65,8 +65,10 @@ public class SoldProductService {
 	}
 
 	/**
-	 * Returns a list containing all the SoldProducts objects whose Product
-	 * attribute value has the code given as parameter.
+	 * Returns a list containing all the SoldProduct objects whose Product attribute
+	 * value has the code given as parameter.
+	 * 
+	 * @param productCode The code of the sold products being requested.
 	 * 
 	 * @return A list of SoldProducts whose product code is the one given.
 	 * 
@@ -88,9 +90,9 @@ public class SoldProductService {
 	/**
 	 * Deletes the SoldProduct object whose ID number was given as parameter. If the
 	 * given ID does not match one of the sold products in the system, nothing
-	 * happens.
+	 * happens. Also, uses the HTTP status 200.
 	 * 
-	 * @param soldProduct The ID number of the sold product to be deleted.
+	 * @param id The ID number of the sold product to be deleted.
 	 * 
 	 */
 	public void deleteById(long id) {

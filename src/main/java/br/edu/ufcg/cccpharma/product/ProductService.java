@@ -44,7 +44,7 @@ public class ProductService {
 	 * the given code does not match one of the products in the system, this method
 	 * will return null.
 	 * 
-	 * @param product The identifier code of the requested product.
+	 * @param code The identifier code of the requested product.
 	 * 
 	 * @return The Product object whose identifier code was given, if it exists.
 	 *         Null, otherwise.
@@ -58,16 +58,17 @@ public class ProductService {
 	 * Returns a list containing all the Product objects whose name attribute value
 	 * is the name given as parameter.
 	 * 
+	 * @param name The name of the products being requested.
+	 * 
 	 * @return A list of Products whose name is the one given.
 	 * 
 	 */
-
 	public Product findByName(String name) {
 		return this.productRepository.findByName(name);
 	}
 
 	/**
-	 * Returns a list containing all the Products objects in the system.
+	 * Returns a list containing all the Product objects in the system.
 	 * 
 	 * @return A list of all the Products.
 	 * 
@@ -96,7 +97,7 @@ public class ProductService {
 	 * the given code does not match one of the products in the system, nothing
 	 * happens.
 	 * 
-	 * @param product The identifier code of the product to be deleted.
+	 * @param code The identifier code of the product to be deleted.
 	 * 
 	 */
 	public void deleteByCode(String code) {

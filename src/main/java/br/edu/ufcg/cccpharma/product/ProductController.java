@@ -57,7 +57,7 @@ public class ProductController {
 	 * the given code does not match one of the products in the system, this method
 	 * will return null. Also, uses the HTTP status 200.
 	 * 
-	 * @param product The identifier code of the requested product.
+	 * @param code The identifier code of the requested product.
 	 * 
 	 * @return The Product object whose identifier code was given, if it exists.
 	 *         Null, otherwise.
@@ -73,6 +73,8 @@ public class ProductController {
 	 * Returns a list containing all the Product objects whose name attribute value
 	 * is the name given as parameter. Uses the HTTP status 200.
 	 * 
+	 * @param name The name of the products being requested.
+	 * 
 	 * @return A list of Products whose name is the one given.
 	 * 
 	 */
@@ -83,7 +85,7 @@ public class ProductController {
 	}
 
 	/**
-	 * Returns a list containing all the Products objects in the system. Uses the
+	 * Returns a list containing all the Product objects in the system. Uses the
 	 * HTTP status 200.
 	 * 
 	 * @return A list of all the Products.
@@ -117,7 +119,7 @@ public class ProductController {
 	 * the given code does not match one of the products in the system, nothing
 	 * happens. Also, uses the HTTP status 200.
 	 * 
-	 * @param product The identifier code of the product to be deleted.
+	 * @param code The identifier code of the product to be deleted.
 	 * 
 	 */
 	@DeleteMapping("/{code}")

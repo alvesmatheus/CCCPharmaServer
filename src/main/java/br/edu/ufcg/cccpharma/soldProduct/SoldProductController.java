@@ -56,7 +56,7 @@ public class SoldProductController {
 	 * given ID does not match one of the sold products in the system, this method
 	 * will return null. Also, uses the HTTP status 200.
 	 * 
-	 * @param soldProduct The ID number of the requested sold product.
+	 * @param id The ID number of the requested sold product.
 	 * 
 	 * @return The SoldProduct object whose ID number was given, if it exists. Null,
 	 *         otherwise.
@@ -69,8 +69,10 @@ public class SoldProductController {
 	}
 
 	/**
-	 * Returns a list containing all the SoldProduct objects whose Product
-	 * attribute value has the code given as parameter. Uses the HTTP status 200.
+	 * Returns a list containing all the SoldProduct objects whose Product attribute
+	 * value has the code given as parameter. Uses the HTTP status 200.
+	 * 
+	 * @param productCode The code of the sold products being requested.
 	 * 
 	 * @return A list of SoldProducts whose product code is the one given.
 	 * 
@@ -99,7 +101,7 @@ public class SoldProductController {
 	 * given ID does not match one of the sold products in the system, nothing
 	 * happens. Also, uses the HTTP status 200.
 	 * 
-	 * @param soldProduct The ID number of the sold product to be deleted.
+	 * @param id The ID number of the sold product to be deleted.
 	 * 
 	 */
 	@DeleteMapping("/{id}")

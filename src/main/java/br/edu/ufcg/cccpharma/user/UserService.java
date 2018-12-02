@@ -55,7 +55,7 @@ public class UserService {
 	}
 
 	/**
-	 * Returns a list containing all the Users objects in the system.
+	 * Returns a list containing all the User objects in the system.
 	 * 
 	 * @return A list of all the Users.
 	 * 

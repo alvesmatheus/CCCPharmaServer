@@ -7,6 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.CascadeType;
+import javax.persistence.EntityListeners;
 
 import br.edu.ufcg.cccpharma.category.Category;
 

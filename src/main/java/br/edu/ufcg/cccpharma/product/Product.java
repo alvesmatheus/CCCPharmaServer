@@ -2,6 +2,7 @@ package br.edu.ufcg.cccpharma.product;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,6 +12,7 @@ import br.edu.ufcg.cccpharma.category.Category;
 
 @Entity
 @Table(name = "tb_product")
+@EntityListeners(ProductListener.class)
 public class Product {
 	
 	@Id
@@ -21,6 +23,8 @@ public class Product {
 	private Double price;
 	
 	private int amount;
+	
+	private boolean available;
 	
 	private String producer;
 	
@@ -82,6 +86,14 @@ public class Product {
 
 	public void setProducer(String producer) {
 		this.producer = producer;
+	}
+	
+	public boolean isAvailable() {
+		return this.available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 
 	public Category getCategory() {

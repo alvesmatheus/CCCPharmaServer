@@ -1,6 +1,5 @@
 package br.edu.ufcg.cccpharma.user;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -34,12 +33,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 @Table(name = "tb_user")
-public class User implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class User {
 
 	@Id
 	private String email;
@@ -111,7 +105,7 @@ public class User implements Serializable {
 	 * This equality will only exists if the given Object is an User object with the
 	 * same "email" attribute value.
 	 * 
-	 * @param obj An object to be compare to the User.
+	 * @param obj An object to be compared to the User.
 	 * 
 	 * @return A boolean that represents the comparison result.
 	 * 

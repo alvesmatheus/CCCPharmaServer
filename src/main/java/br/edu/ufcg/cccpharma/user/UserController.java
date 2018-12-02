@@ -69,7 +69,7 @@ public class UserController {
 	}
 
 	/**
-	 * Returns a list containing all the Users objects in the system. Uses the HTTP
+	 * Returns a list containing all the User objects in the system. Uses the HTTP
 	 * status 200.
 	 * 
 	 * @return A list of all the Users.

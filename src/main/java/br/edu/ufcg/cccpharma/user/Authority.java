@@ -94,7 +94,7 @@ public class Authority implements GrantedAuthority {
 	 * parameter. This equality will only exists if the given Object is also an
 	 * Authority object and possesses the same ID number.
 	 * 
-	 * @param obj An object to be compare to the Authority.
+	 * @param obj An object to be compared to the Authority.
 	 * 
 	 * @return A boolean that represents the comparison result.
 	 * 

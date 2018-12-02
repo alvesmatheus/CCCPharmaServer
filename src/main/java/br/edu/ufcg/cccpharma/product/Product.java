@@ -29,6 +29,7 @@ import br.edu.ufcg.cccpharma.category.Category;
  */
 @Entity
 @Table(name = "tb_product")
+@EntityListeners(ProductListener.class)
 public class Product {
 
 	@Id

@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ufcg.cccpharma.user.User;
-
 @RestController
-@RequestMapping("/sale")
+@RequestMapping("/sales")
 public class SaleController {
 
 	@Autowired
@@ -41,10 +39,10 @@ public class SaleController {
 		return this.saleService.findById(id);
 	}
 	
-	@GetMapping("/{user}")
+	@GetMapping("/user/{user}")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Sale> findByUser(@PathVariable User user){
-		return this.saleService.findbyUser(user);
+	public List<Sale> findByUser(@PathVariable String user){
+		return this.saleService.findByUserEmail(user);
 	}
 	
 	@GetMapping

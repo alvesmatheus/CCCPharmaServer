@@ -1,6 +1,6 @@
 package br.edu.ufcg.cccpharma.sale;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -28,21 +28,21 @@ public class Sale {
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "sold_product_id")
-	private List<SoldProduct> soldProducts;
+	private Set<SoldProduct> soldProducts;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "user_email", nullable = false)
+	@JoinColumn(name = "user_email", referencedColumnName = "email", nullable = false)
 	private User user;
 	
 	public Sale() {}
 	
-	public Sale(User user, List<SoldProduct> soldProducts) {
+	public Sale(User user, Set<SoldProduct> soldProducts) {
 		this.user = user;
 		this.soldProducts = soldProducts;
 		this.cost = this.calculateCost(soldProducts);
 	}
 
-	private Double calculateCost(List<SoldProduct> products) {
+	private Double calculateCost(Set<SoldProduct> products) {
 		Double toReturn = 0.0;
 		for(SoldProduct soldProduct: products) {
 			toReturn += (soldProduct.getQuantity() * soldProduct.getProduct().getPrice());
@@ -66,11 +66,11 @@ public class Sale {
 		this.cost = cost;
 	}
 	
-	public List<SoldProduct> getSoldProducts() {
+	public Set<SoldProduct> getSoldProducts() {
 		return soldProducts;
 	}
 
-	public void setSoldProducts(List<SoldProduct> soldProducts) {
+	public void setSoldProducts(Set<SoldProduct> soldProducts) {
 		this.soldProducts = soldProducts;
 	}
 

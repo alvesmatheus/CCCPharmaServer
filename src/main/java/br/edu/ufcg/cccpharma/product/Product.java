@@ -28,8 +28,8 @@ public class Product {
 	
 	private String producer;
 	
-	@ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "category_id", nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.MERGE, optional = false)
+    @JoinColumn(name = "category_name", referencedColumnName = "name", nullable = false)
 	private Category category;
 
 	public Product(String name, String code, Double price, int quantity, String producer,Category category) {

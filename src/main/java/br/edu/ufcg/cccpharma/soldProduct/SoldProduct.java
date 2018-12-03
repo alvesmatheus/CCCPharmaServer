@@ -23,7 +23,7 @@ public class SoldProduct {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE, optional = false)
 	@JoinColumn(name = "product_code", nullable = false)
 	private Product product;
 

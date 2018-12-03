@@ -1,12 +1,17 @@
 package br.edu.ufcg.cccpharma.sale;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ufcg.cccpharma.user.User;
+import br.edu.ufcg.cccpharma.user.UserRepository;
+
 @Service
 public class SaleService {
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
 	private SaleRepository saleRepository;
@@ -16,6 +21,10 @@ public class SaleService {
 	}
 
 	public Sale save(Sale sale) {
+		User user = this.userRepository.findByEmail(sale.getEmail());
+		sale.setUser(user);
+		sale.setCost();
+		
 		return this.saleRepository.save(sale);
 	}
 

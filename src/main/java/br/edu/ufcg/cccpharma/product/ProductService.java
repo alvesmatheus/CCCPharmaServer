@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductService {
+public class ProductService {	
 	
 	@Autowired
 	private ProductRepository productRepository;

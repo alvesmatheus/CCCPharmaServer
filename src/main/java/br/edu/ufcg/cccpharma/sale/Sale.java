@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.edu.ufcg.cccpharma.soldProduct.SoldProduct;
 import br.edu.ufcg.cccpharma.user.User;
 
@@ -27,10 +29,10 @@ public class Sale {
 	private Double cost;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "sold_product_id")
+	@JoinColumn(name = "sale_id")
 	private Set<SoldProduct> soldProducts;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE, optional = false)
 	@JoinColumn(name = "user_email", referencedColumnName = "email", nullable = false)
 	private User user;
 	
@@ -62,8 +64,8 @@ public class Sale {
 		return cost;
 	}
 	
-	public void setCost(Double cost) {
-		this.cost = cost;
+	public void setCost() {
+		this.cost = calculateCost(getSoldProducts());
 	}
 	
 	public Set<SoldProduct> getSoldProducts() {
@@ -82,6 +84,11 @@ public class Sale {
 		this.user = user;
 	}
 	
+	@JsonIgnore
+	public String getEmail() {
+		return user.getEmail();
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

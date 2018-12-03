@@ -3,24 +3,15 @@ package br.edu.ufcg.cccpharma.soldProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.ufcg.cccpharma.product.Product;
-import br.edu.ufcg.cccpharma.product.ProductRepository;
-
 import java.util.List;
 
 @Service
 public class SoldProductService {
-
-	@Autowired
-	private ProductRepository productRepository;
 		
 	@Autowired
 	private SoldProductRepository soldProductRepository;
 
 	public SoldProduct save(SoldProduct soldProduct) {
-		Product product = this.productRepository.findByCode(soldProduct.getCode());
-		soldProduct.setProduct(product);
-		
 		return this.soldProductRepository.save(soldProduct);
 	}
 

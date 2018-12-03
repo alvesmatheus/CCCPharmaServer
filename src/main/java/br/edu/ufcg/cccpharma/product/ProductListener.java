@@ -1,7 +1,5 @@
 package br.edu.ufcg.cccpharma.product;
 
-import javax.persistence.PostPersist;
-import javax.persistence.PostUpdate;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 

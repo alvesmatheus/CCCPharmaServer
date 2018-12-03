@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * An UserService object is responsible to establish the link between the
  * UserController and the UserRepository. Once the controller has interpreted
- * the received requested, the service will perform all the operations needed to
+ * the received requests, the service will perform all the operations needed to
  * satisfy them. When database interaction is required, the UserService will use
  * its UserRepository attribute.
  * 
@@ -55,7 +55,7 @@ public class UserService {
 	}
 
 	/**
-	 * Returns a list containing all the Users objects in the system.
+	 * Returns a list containing all the User objects in the system.
 	 * 
 	 * @return A list of all the Users.
 	 * 

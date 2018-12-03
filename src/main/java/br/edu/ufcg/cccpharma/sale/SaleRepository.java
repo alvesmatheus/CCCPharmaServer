@@ -1,11 +1,13 @@
-package br.edu.ufcg.cccpharma.user;
+package br.edu.ufcg.cccpharma.sale;
+
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * An UserRepository object is used to create a connection with the database and
- * provide a simplified way to perform queries about users on it. The methods
+ * A SaleRepository object is used to create a connection with the database and
+ * provide a simplified way to perform queries about products on it. The methods
  * signatures here used are self explanatory.
  * 
  * @author Douglas Pereira de Lima
@@ -18,8 +20,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface SaleRepository extends JpaRepository<Sale, Long> {
 
-	User findByEmail(String email);
+	Sale findById(long Id);
+
+	List<Sale> findByUserEmail(String email);
 
 }

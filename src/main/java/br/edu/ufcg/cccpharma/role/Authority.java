@@ -61,7 +61,7 @@ public class Authority implements GrantedAuthority, Serializable {
 		this.id = id;
 		this.name = name;
 	}
-
+	
 	public UserRoleName getName() {
 		return this.name;
 	}

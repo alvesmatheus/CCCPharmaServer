@@ -17,6 +17,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import br.edu.ufcg.cccpharma.role.UserRoleName;
 import br.edu.ufcg.cccpharma.security.JwtTokenFilterConfigurer;
 import br.edu.ufcg.cccpharma.security.JwtTokenProvider;
 
@@ -45,7 +46,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		
 		http.authorizeRequests()
-			.antMatchers("/categories").authenticated();
+			.antMatchers("/categories/**").hasAuthority(UserRoleName.ROLE_ADMIN.name())
+			.antMatchers("/sold-products/**").hasAuthority(UserRoleName.ROLE_ADMIN.name())
+			.antMatchers("/sales/**").hasAuthority(UserRoleName.ROLE_ADMIN.name())
+			.antMatchers(HttpMethod.POST, "/products").hasAuthority(UserRoleName.ROLE_ADMIN.name())
+			.antMatchers(HttpMethod.PUT, "/products").hasAuthority(UserRoleName.ROLE_ADMIN.name())
+			.antMatchers(HttpMethod.DELETE, "/products").hasAuthority(UserRoleName.ROLE_ADMIN.name())
+			.antMatchers(HttpMethod.GET, "/products").permitAll()
+			.antMatchers("/notifications/**").hasAuthority(UserRoleName.ROLE_ADMIN.name());
+			
 		
 		http.apply(new JwtTokenFilterConfigurer(jwtTokenProvider));
 		

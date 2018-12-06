@@ -2,6 +2,9 @@ package br.edu.ufcg.cccpharma.role;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -31,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 @Table(name = "tb_authority")
-public class Authority implements GrantedAuthority {
+public class Authority implements GrantedAuthority, Serializable {
 
 	private static final long serialVersionUID = 1L;
 

@@ -1,4 +1,4 @@
-package br.edu.ufcg.cccpharma.user;
+package br.edu.ufcg.cccpharma.role;
 
 import javax.persistence.Id;
 import javax.persistence.Table;

@@ -15,8 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
+import br.edu.ufcg.cccpharma.role.Authority;
 import br.edu.ufcg.cccpharma.security.auth.config.AuthenticationConfig;
-import br.edu.ufcg.cccpharma.user.Authority;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;

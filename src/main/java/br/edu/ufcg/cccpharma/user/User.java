@@ -42,7 +42,7 @@ public class User {
 
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_authority",
 	           joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "email"),
 	           inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))

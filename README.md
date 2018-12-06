@@ -20,6 +20,10 @@ Projeto final da disciplina Projeto de Software.
 
     `mvn spring-boot:run`
 
+## Front-end
+
+O front-end pode ser visualizado [aqui](https://cccpharmaweb.herokuapp.com/#/)
+
 ## Banco de dados
 
 Para manipular e acessar os dados, é necessário configurar um banco de dados, nós usamos o [postgresql](https://www.postgresql.org/). Se você ainda não tem ele instalado na sua máquina, faça o download. 
@@ -30,14 +34,11 @@ Para manipular e acessar os dados, é necessário configurar um banco de dados, 
 Feito isso é necessário criar um usuário, senha e um banco e configurá-las para o spring, tipicamente, em aplicações Spring essas informações são armazenadas no arquivo [application.properties](https://github.com/SpinnelSun/CCCPharma/blob/6-add-spring-structure/cccpharma/src/main/resources/application.properties), esse arquivo foi adicionado ao `.gitignore` pois não é seguro deixar a senha do banco visível para outros usuários. Assim, se for necessário alterar, tenha a certeza de que essa alteração será apenas local.
 
 ## Autenticação
-[WIP]
 Veja mais detalhes na [wiki](https://github.com/SpinnelSun/CCCPharma/wiki/Autentica%C3%A7%C3%A3o-com-JsonWebToken(JwtToken))
 
 ## Deploy
-[TODO: Condigurar heroku] 
+O deploy é feito de maneira automática pelo github, sempre que subimos uma nova versão para branch master, se quiser ver o resultado, use essa [URL](https://cccpharma-server.herokuapp.com/)
 
-## Referência para API
-[TODO: Swagger]
 
 ## Guia do desenvolvedor
 

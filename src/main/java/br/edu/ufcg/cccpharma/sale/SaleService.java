@@ -88,7 +88,7 @@ public class SaleService {
 	/**
 	 * Returns a list containing all the Sale objects in the system.
 	 * 
-	 * @return A list of all the Products.
+	 * @return A list of all the Sales.
 	 * 
 	 */
 	public Page<Sale> findAll(Pageable pageRequest) {

@@ -93,7 +93,7 @@ public class SaleController {
 	 * Returns a list containing all the Sale objects in the system. Uses the HTTP
 	 * status 200.
 	 * 
-	 * @return A list of all the Products.
+	 * @return A list of all the Sales.
 	 * 
 	 */
 	@GetMapping

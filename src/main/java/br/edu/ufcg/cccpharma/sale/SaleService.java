@@ -2,6 +2,8 @@ package br.edu.ufcg.cccpharma.sale;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufcg.cccpharma.user.User;
@@ -89,8 +91,8 @@ public class SaleService {
 	 * @return A list of all the Products.
 	 * 
 	 */
-	public List<Sale> findAll() {
-		return this.saleRepository.findAll();
+	public Page<Sale> findAll(Pageable pageRequest) {
+		return this.saleRepository.findAll(pageRequest);
 	}
 
 	/**

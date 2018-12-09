@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -91,13 +93,13 @@ public class SaleController {
 	 * Returns a list containing all the Sale objects in the system. Uses the HTTP
 	 * status 200.
 	 * 
-	 * @return A list of all the Products.
+	 * @return A list of all the Sales.
 	 * 
 	 */
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public List<Sale> findAll() {
-		return this.saleService.findAll();
+	public Page<Sale> findAll(Pageable pageable) {
+		return this.saleService.findAll(pageable);
 	}
 
 	/**

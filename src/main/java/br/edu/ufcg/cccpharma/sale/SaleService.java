@@ -69,21 +69,6 @@ public class SaleService {
 	}
 
 	/**
-	 * Returns a list containing all the Sale objects which user attribute value is
-	 * the User whose e-mail address is the one given as parameter.
-	 * 
-	 * @param user The e-mail address of the User whose purchases are being
-	 *             requested.
-	 * 
-	 * @return A list of Sales whose user is the one who possesses the e-mail
-	 *         address given.
-	 * 
-	 */
-	public List<Sale> findByUserEmail(String email) {
-		return this.saleRepository.findByUserEmail(email);
-	}
-
-	/**
 	 * Returns a list containing all the Sale objects in the system.
 	 * 
 	 * @return A list of all the Products.

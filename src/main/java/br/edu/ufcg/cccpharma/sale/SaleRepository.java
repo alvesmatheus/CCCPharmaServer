@@ -24,6 +24,4 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
 
 	Sale findById(long Id);
 
-	List<Sale> findByUserEmail(String email);
-
 }

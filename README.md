@@ -7,7 +7,7 @@ Projeto final da disciplina Projeto de Software.
 
 - Clone o repositório. Use o comando abaixo:
 
-    `git clone https://github.com/SpinnelSun/CCCPharma.git`
+    `git clone https://github.com/SpinnelSun/CCCPharmaServer.git`
 
 - Navegue até o diretório onde o projeto está armazenado. Por exemplo:
 

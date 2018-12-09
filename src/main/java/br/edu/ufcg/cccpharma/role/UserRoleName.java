@@ -1,4 +1,4 @@
-package br.edu.ufcg.cccpharma.user;
+package br.edu.ufcg.cccpharma.role;
 
 /**
  * An enumeration for the names of the roles that a user may have on the

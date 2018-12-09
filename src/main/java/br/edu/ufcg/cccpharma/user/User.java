@@ -15,6 +15,8 @@ import org.springframework.security.core.GrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.edu.ufcg.cccpharma.role.Authority;
+
 /**
  * An User object models the real users of CCCPharma system. Each user will be
  * unique identified by its e-mail address. Also, every user has a password and

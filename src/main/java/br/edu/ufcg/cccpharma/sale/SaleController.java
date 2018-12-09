@@ -69,23 +69,6 @@ public class SaleController {
 		return this.saleService.findById(id);
 	}
 
-	/**
-	 * Returns a list containing all the Sale objects which user attribute value is
-	 * the User whose e-mail address is the one given as parameter. Uses the HTTP
-	 * status 200.
-	 * 
-	 * @param user The e-mail address of the User whose purchases are being
-	 *             requested.
-	 * 
-	 * @return A list of Sales whose user is the one who possesses the e-mail
-	 *         address given.
-	 * 
-	 */
-	@GetMapping("/user/{user}")
-	@ResponseStatus(HttpStatus.OK)
-	public List<Sale> findByUser(@PathVariable String user) {
-		return this.saleService.findByUserEmail(user);
-	}
 
 	/**
 	 * Returns a list containing all the Sale objects in the system. Uses the HTTP

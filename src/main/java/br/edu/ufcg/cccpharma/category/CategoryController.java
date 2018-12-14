@@ -7,12 +7,15 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.edu.ufcg.cccpharma.product.Product;
 
 /**
  * A CategoryController object is responsible to manage the category objects of
@@ -49,6 +52,24 @@ public class CategoryController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Category save(@RequestBody Category category) {
+		return this.categoryService.save(category);
+	}
+	
+	
+	/**
+	 * Updates the category object in the system whose identifier code is the same
+	 * that the category given as parameter and returns it after that. If the given
+	 * category does not match one of the products in the system, it will be
+	 * registered and returned. Uses the HTTP status 200.
+	 * 
+	 * @param category The category to be updated in the system.
+	 * 
+	 * @return The updated (or created) category object.
+	 * 
+	 */
+	@PutMapping
+	@ResponseStatus(HttpStatus.OK)
+	public Category update(@RequestBody Category category) {
 		return this.categoryService.save(category);
 	}
 

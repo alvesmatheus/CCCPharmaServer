@@ -121,10 +121,10 @@ public class SoldProduct {
 		if (getClass() != obj.getClass())
 			return false;
 		SoldProduct other = (SoldProduct) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (getProduct() == null) {
+			if (other.getProduct()!= null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!getProduct().equals(other.getProduct()))
 			return false;
 		return true;
 	}

@@ -11,6 +11,8 @@ import javax.persistence.EntityListeners;
 
 import br.edu.ufcg.cccpharma.category.Category;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * A Product object models the real products of the CCCPharma system. Each
  * product will be unique identified by its code, being easily recognizable by
@@ -202,6 +204,7 @@ public class Product {
 	 * @return The base price of the product.
 	 * 
 	 */
+	@JsonIgnore
 	public double getBasePrice() {
 		return this.price;
 	}

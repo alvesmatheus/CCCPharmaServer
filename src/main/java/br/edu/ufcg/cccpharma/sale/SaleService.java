@@ -1,18 +1,13 @@
 package br.edu.ufcg.cccpharma.sale;
-
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import br.edu.ufcg.cccpharma.soldProduct.SoldProduct;
+import br.edu.ufcg.cccpharma.soldProduct.SoldProductRepository;
 import br.edu.ufcg.cccpharma.user.User;
 import br.edu.ufcg.cccpharma.user.UserRepository;
-
-
-import org.springframework.stereotype.Service;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * A SaleService object is responsible to establish the link between the
@@ -37,6 +32,9 @@ public class SaleService {
 	private UserRepository userRepository;
 	
 	@Autowired
+	private SoldProductRepository soldProductRepository;
+	
+	@Autowired
 	private SaleRepository saleRepository;
 
 	/**
@@ -51,6 +49,10 @@ public class SaleService {
 		User user = this.userRepository.findByEmail(sale.getEmail());
 		sale.setUser(user);
 		sale.setCost();
+		
+		for(SoldProduct soldProduct: sale.getSoldProducts()) {
+			soldProductRepository.save(soldProduct);
+		}
 		
 		return this.saleRepository.save(sale);
 	}

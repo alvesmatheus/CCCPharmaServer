@@ -69,6 +69,7 @@ public class Sale {
 		this.user = user;
 		this.soldProducts = soldProducts;
 		this.cost = this.calculateCost(soldProducts);
+		this.decrementProductQuantity();
 	}
 
 	public Long getId() {
@@ -180,6 +181,32 @@ public class Sale {
 		}
 
 		return totalCost;
+	}
+	
+	/**
+	 * 
+	 * Decrement the quantity of each product in one Sale. It gets the current amount 
+	 * of a product and decrement the quantity of that product that is going to be in this sale.
+	 *  
+	 */
+	private void decrementProductQuantity() {
+		for (SoldProduct soldProduct : soldProducts) {
+			int amount = soldProduct.getProduct().getAmount() - soldProduct.getQuantity();
+			soldProduct.getProduct().setAmount(amount);
+		}
+	}
+	
+	/**
+	 * 
+	 * Increment the quantity of each product in one Sale. It gets the current amount 
+	 * of a product and increment the quantity of that product that was in this sale.
+	 * 
+	 */
+	public void incrementProductQuantity() {
+		for (SoldProduct soldProduct : soldProducts) {
+			int amount = soldProduct.getProduct().getAmount() + soldProduct.getQuantity();
+			soldProduct.getProduct().setAmount(amount);
+		}
 	}
 
 }

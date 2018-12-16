@@ -113,6 +113,7 @@ public class SaleController {
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteById(@PathVariable long id) {
+		this.findById(id).incrementProductQuantity();
 		this.saleService.deleteById(id);
 	}
 

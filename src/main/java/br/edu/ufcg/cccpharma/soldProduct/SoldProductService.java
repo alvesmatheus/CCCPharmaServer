@@ -45,6 +45,11 @@ public class SoldProductService {
 	 * 
 	 */
 	public SoldProduct save(SoldProduct soldProduct) {
+		
+		Product product = soldProduct.getProduct();
+		product.setAmount(product.getAmount() - soldProduct.getQuantity());
+		productRepository.save(product);
+		
 		return this.soldProductRepository.save(soldProduct);
 	}
 

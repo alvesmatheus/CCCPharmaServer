@@ -189,7 +189,7 @@ public class Sale {
 	 * of a product and decrement the quantity of that product that is going to be in this sale.
 	 *  
 	 */
-	private void decrementProductQuantity() {
+	public void decrementProductQuantity() {
 		for (SoldProduct soldProduct : soldProducts) {
 			int amount = soldProduct.getProduct().getAmount() - soldProduct.getQuantity();
 			soldProduct.getProduct().setAmount(amount);

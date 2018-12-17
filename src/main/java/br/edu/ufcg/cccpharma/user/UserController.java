@@ -88,8 +88,22 @@ public class UserController {
 	 */
 	@DeleteMapping
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteByCode() {
+	public void deleteAll() {
 		this.userService.deleteAll();
+	}
+	
+	/**
+	 * Deletes the User object whose identifier email was given as parameter. If
+	 * the given email does not match one of the users in the system, nothing
+	 * happens. Also, uses the HTTP status 200.
+	 * 
+	 * @param email The identifier email of the user to be deleted.
+	 * 
+	 */
+	@DeleteMapping("/{email}")
+	@ResponseStatus(HttpStatus.OK)
+	public void deleteByEmail(@PathVariable String email) {
+		this.userService.deleteByEmail(email);
 	}
 
 

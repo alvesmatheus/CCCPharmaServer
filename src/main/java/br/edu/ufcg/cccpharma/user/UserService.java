@@ -65,6 +65,18 @@ public class UserService {
 	}
 	
 	/**
+	 * Deletes the User object whose identifier email was given as parameter. If
+	 * the given email does not match one of the users in the system, nothing
+	 * happens.
+	 * 
+	 * @param email The identifier email of the user to be deleted.
+	 * 
+	 * */
+	public void deleteByEmail(String email) {
+		this.userRepository.deleteByEmail(email);
+	}
+	
+	/**
 	 * Deletes all the User objects in the system.
 	 */
 	public void deleteAll() {

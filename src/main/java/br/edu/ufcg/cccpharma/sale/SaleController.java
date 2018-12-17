@@ -1,6 +1,7 @@
 package br.edu.ufcg.cccpharma.sale;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.edu.ufcg.cccpharma.product.Product;
+import br.edu.ufcg.cccpharma.product.ProductService;
+import br.edu.ufcg.cccpharma.soldProduct.SoldProduct;
 
 /**
  * A SaleController object is responsible to manage the sale objects of the
@@ -37,6 +42,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class SaleController {
 
 	@Autowired
+	private ProductService productService;
+	
+	@Autowired
 	private SaleService saleService;
 
 	/**
@@ -51,7 +59,7 @@ public class SaleController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Sale save(@RequestBody Sale sale) {
-		sale.decrementProductQuantity();
+		this.decrementProductQuantity(sale.getSoldProducts());
 		return this.saleService.save(sale);
 	}
 
@@ -125,6 +133,22 @@ public class SaleController {
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteAll() {
 		this.saleService.deleteAll();
+	}
+	
+	/**
+	 * 
+	 * Decrement the quantity of each product in one Sale. It gets the current amount 
+	 * of a product and decrement the quantity of that product that is going to be in this sale.
+	 *  
+	 */
+	private void decrementProductQuantity(Set<SoldProduct> soldProducts) {
+		for (SoldProduct soldProduct : soldProducts) {
+			int amount = soldProduct.getProduct().getAmount() - soldProduct.getQuantity();
+			Product product = soldProduct.getProduct();
+			product.setAmount(amount);
+			
+			productService.update(product);
+		}
 	}
 
 }

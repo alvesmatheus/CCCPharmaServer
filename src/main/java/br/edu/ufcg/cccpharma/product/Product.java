@@ -49,7 +49,7 @@ public class Product {
 	private boolean available;
 
 	@ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.MERGE, optional = false)
-    @JoinColumn(name = "category_name", referencedColumnName = "name", nullable = false)
+    	@JoinColumn(name = "category_name", referencedColumnName = "name", nullable = false)
 	private Category category;
 
 	/**

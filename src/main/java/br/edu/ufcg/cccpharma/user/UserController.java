@@ -3,7 +3,7 @@ package br.edu.ufcg.cccpharma.user;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -80,5 +80,17 @@ public class UserController {
 	public List<User> findAll() {
 		return this.userService.findAll();
 	}
+	
+	
+	/**
+	 * Deletes all the user objects in the system. Also, uses the HTTP status
+	 * 200.
+	 */
+	@DeleteMapping
+	@ResponseStatus(HttpStatus.OK)
+	public void deleteByCode() {
+		this.userService.deleteAll();
+	}
+
 
 }

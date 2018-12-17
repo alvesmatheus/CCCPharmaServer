@@ -63,5 +63,12 @@ public class UserService {
 	public List<User> findAll() {
 		return this.userRepository.findAll();
 	}
+	
+	/**
+	 * Deletes all the User objects in the system.
+	 */
+	public void deleteAll() {
+		this.userRepository.deleteAll();
+	}
 
 }

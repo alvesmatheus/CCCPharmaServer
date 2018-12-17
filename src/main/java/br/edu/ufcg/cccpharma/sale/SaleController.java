@@ -51,6 +51,7 @@ public class SaleController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Sale save(@RequestBody Sale sale) {
+		sale.decrementProductQuantity();
 		return this.saleService.save(sale);
 	}
 
